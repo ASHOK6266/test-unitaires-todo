@@ -6,6 +6,7 @@ class User
     public $email;
     public $firstname;
     public $lastname;
+    public $password;
     public $age;
 
     public function emailFormatChecker($email)
@@ -34,7 +35,6 @@ class User
             echo "Enter the valid name \n";
         }
     }
-
     public function lastNameChecker($lastname)
     {
         //$lastname = $_POST["lname"];
@@ -48,13 +48,24 @@ class User
             echo "invalid lastname \n";
         }
     }
+    public function passwordChecker($password)
+    {
+        if(strlen($password) > 8 && strlen($password) < 40)
+        {
+            echo "valid password \n";
+        }
+        else
+        {
+            echo "invalid password \n";
+        }
+    }
 
     public function ageFormatChecker($age)
     {
         //$age = $_POST["age"];
         if (is_numeric($age))
         {
-            echo "Valid age \n";
+            echo "valid age \n";
             return $age;
         }
         else
@@ -67,10 +78,11 @@ class User
 function is_valid()
 {
     $new_user = new User;
-    $new_user->ageFormatChecker($_POST["age"]);
     $new_user->emailFormatChecker($_POST["email"]);
     $new_user->firstNameChecker($_POST["fname"]);
-    $new_user->lastNameChecker($_POST["fname"]);
+    $new_user->lastNameChecker($_POST["lname"]);
+    $new_user->passwordChecker($_POST["password"]);
+    $new_user->ageFormatChecker($_POST["age"]);
 
 }
 
