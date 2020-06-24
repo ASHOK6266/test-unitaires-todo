@@ -63,10 +63,12 @@ class UserTest extends TestCase
 
     public function ageFormatChecker()
     {
+        $input = "19";
+        $output = $this->new_user->ageFormatChecker($input);
         $this->assertEquals(
             "19",
-            $new_user->emailFormatChecker("19",
-            'The password are equal with test case')
+            $output,
+            'The Age is a valid integer'
         );
 
     }
