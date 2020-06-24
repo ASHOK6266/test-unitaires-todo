@@ -31,7 +31,7 @@ class User
         //$firstname = $_POST["fname"];
         if(strlen($firstname)>3 && strlen($firstname) < 40)
         {
-            echo "valid name \n";
+            return $firstname;
         }
         else
         {
@@ -44,7 +44,7 @@ class User
         $lastnamePattern = "/[a-zA-Z]/";
         if(preg_match($lastnamePattern,$lastname))
         {
-            echo "valid lastname \n";
+            return $lastname;
         }
         else
         {
@@ -55,7 +55,7 @@ class User
     {
         if(strlen($password) > 8 && strlen($password) < 40)
         {
-            echo "valid password \n";
+            return $password;
         }
         else
         {
@@ -68,7 +68,6 @@ class User
         //$age = $_POST["age"];
         if (is_numeric($age))
         {
-            echo "valid age \n";
             return $age;
         }
         else
