@@ -9,50 +9,60 @@ use TDD\User;
 
 class UserTest extends TestCase
 {
+    public $new_user;
+    public function setUp(): void
+    {
+        $this->new_user = new User();
+    }
+    public function tearDown(): void
+    {
+        unset($this->new_user);
+    }
     public function testEmail()
     {
-        $new_user = new User();
+        $input = "ashok@gmail.com";
+        $output = $this->new_user->emailFormatChecker($input);
         $this->assertEquals(
             "ashok@gmail.com",
-            $new_user->emailFormatChecker("ashok@gmail.com",
-            'The user email are same as expected')
+            $output,
+            'The user email are same as expected'
         );
-
     }
     public function testFirstNameChecker()
     {
-        $new_user = new User();
+        $input = "ashok";
+        $output = $this->new_user->firstNameChecker($input);
         $this->assertEquals(
             "ashok",
-            $new_user->firstNameChecker("ashok",
-            'The firstname prints expected')
+            $output,
+            'The firstname prints expected'
         );
 
     }
     public function testLastNameChecker()
     {
-        $new_user = new User();
+        $input = "kumar";
+        $output = $this->new_user->lastNameChecker($input);
         $this->assertEquals(
             "kumar",
-            $new_user->lastNameChecker("kumar",
-            'The lastname prints expected')
+            $output,
+            'The lastname prints expected'
         );
-
     }
     public function testPassword()
     {
-        $new_user = new User();
+        $input = "passwwordchecking";
+        $output = $this->new_user->passwordChecker($input);
         $this->assertEquals(
             "passwwordchecking",
-            $new_user->passwordChecker("passwwordchecking",
-            'The password are equal with test case')
+            $output,
+            'The password are equal with test case'
         );
 
     }
 
     public function ageFormatChecker()
     {
-        $new_user = new User();
         $this->assertEquals(
             "19",
             $new_user->emailFormatChecker("19",
