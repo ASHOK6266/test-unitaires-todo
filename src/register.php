@@ -1,5 +1,6 @@
 <?php
 
+namespace TDD;
 
 class User
 {
@@ -15,7 +16,9 @@ class User
         $pattern = "/^[a-zA-Z0-9._-]+@[a-zA-Z0-9-]+\.[a-zA-Z.]{2,5}$/";
         if(preg_match($pattern,$email))
         {
-            echo "valid email \n";
+            //echo "valid email \n";
+            return $email;
+
         }
         else
         {
