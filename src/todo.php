@@ -1,9 +1,12 @@
 <?php
 
+namespace TDD\todo;
+
+
 class Todo
 {
     public $totalTodoList = 0;
-    public $todoNameChecker = ["jog","study","code"];
+    public $todoNameChecker;
     public $timeChecker;
 
 
@@ -19,11 +22,20 @@ class Todo
             echo "Maximum todo list attained";
         }
     }
-
-    public function TodoListName($name)
+    public function setTodoName($name)
     {
-        
+        $this->todoNameChecker = $name;
+        foreach($name as $unique){
+            if($unique[0] == "jog")
+            {
+                echo "same task not allowed";
+            }
+        }
 
+    }
+    public function getTodoListName()
+    {
+        return $this->todoNameChecker;
     }
 
 
