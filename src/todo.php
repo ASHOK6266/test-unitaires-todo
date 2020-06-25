@@ -9,8 +9,6 @@ class Todo
     public $todoNameChecker;
     public $timeChecker;
 
-
- 
     public function TotalTodoList()
     {
         if($totalTodoList <= 10)
@@ -24,20 +22,13 @@ class Todo
     }
     public function setTodoName($name)
     {
-        $this->todoNameChecker = $name;
-        foreach($name as $unique){
-            if($unique[0] == "jog")
-            {
-                echo "same task not allowed";
-            }
-        }
-
+        //function that returns only the unique name
+        $this->todoNameChecker = array_unique($name);
     }
     public function getTodoListName()
     {
         return $this->todoNameChecker;
     }
-
 
 
 }
